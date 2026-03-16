@@ -41,24 +41,6 @@ console.log({ premierPair, aGrand, tousPositifs });
 const mots = ["zèbre", "Arbre", "avion", "Banane"];
 const triCI = [...mots].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
 console.log(triCI);
-//// exrcicee4/////
-
-const multiplierPar = facteur => x => x * facteur; 
-const fois3 = multiplierPar(3);
-console.log(fois3(10)); 
- 
-const inc = x => x + 1;
-const doble = x => x * 2;
-const compose = (f, g) => x => f(g(x));
-const incPuisDouble = compose(double, inc);
-console.log(incPuisDouble(5)); 
-
-const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);
-const trim = s => s.trim();
-const upper = s => s.toUpperCase();
-const exclam = s => s + "!";
-const nettoyer = pipe(trim, upper, exclam);
-console.log(nettoyer("  hello  "));
 
 //// exrcicee5/////
   const produits = [
@@ -86,15 +68,3 @@ const parCategorie = produits.reduce((acc, p) => {
   return acc;
 }, {});
 console.log({ valeurStock, parCategorie });
-
-//// exrcicee6/////
-const getJSON = async url => {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("HTTP " + res.status);
-  return res.json();
-};
-
-// Exemple d’usage (navigateur):
-// getJSON("https://jsonplaceholder.typicode.com/users")
-//   .then(data => console.log(data))
-//   .catch(err => console.error(err));
